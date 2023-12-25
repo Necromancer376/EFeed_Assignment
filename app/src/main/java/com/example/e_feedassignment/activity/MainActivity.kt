@@ -24,6 +24,7 @@ import java.util.Properties
 
 class MainActivity : AppCompatActivity() {
 
+    private val API_KEY: String = BuildConfig.GITHUB_API_KEY
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAdapter: IssuesAdapter
     private lateinit var mProgressDialog: Dialog
@@ -88,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         var result: MutableList<Issue>? = null
 
         val query = filteredURL
-        val rep = ServiceGenerator.api.getRepoIssues(BuildConfig.GITHUB_API_KEY, query)
+        val rep = ServiceGenerator.api.getRepoIssues(API_KEY, query)
         if(rep != null) {
             if (rep.isSuccessful) {
                 result = rep.body()!!.items
@@ -110,8 +111,8 @@ class MainActivity : AppCompatActivity() {
         pageNo++
         var result: MutableList<Issue>? = null
 
-        val query = filteredURL + " page:${pageNo}"
-        val rep = ServiceGenerator.api.getRepoIssues("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", query)
+        val query = "${filteredURL} page:${pageNo}"
+        val rep = ServiceGenerator.api.getRepoIssues(API_KEY, query)
 
         if(rep.isSuccessful) {
             result = rep.body()!!.items
@@ -119,9 +120,13 @@ class MainActivity : AppCompatActivity() {
             if (result != null) {
                 mAdapter.extendList(result)
             }
+            else {
+                hideProgressDialog()
+            }
         }
         else {
             showErrorSnackBar("The user or repository does not exist", true)
+            hideProgressDialog()
         }
         hideProgressDialog()
     }
@@ -157,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         var filters = ""
 
         if((binding.etUsername.text != null && binding.etRepositoryName.text != null) && (binding.etUsername.text!!.isNotEmpty() && binding.etRepositoryName.text!!.isNotEmpty())) {
-            filters += binding.etUsername.text.toString().trim() + "/" + binding.etRepositoryName.text.toString().trim()
+            filters += "${binding.etUsername.text.toString().trim()}/${binding.etRepositoryName.text.toString().trim()}"
         }
         else {
             showErrorSnackBar("Fill Username and Repository Name", true)
