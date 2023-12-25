@@ -239,36 +239,4 @@ class MainActivity : AppCompatActivity() {
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
     }
-
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//
-//        deleteCacheDirContents(this@MainActivity)
-//    }
-//
-//    private fun deleteCacheDirContents(context: Context) {
-//        try {
-//            val cacheDir: File? = context.cacheDir
-//            cacheDir?.let {
-//                deleteDirContents(it)
-//            }
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//        }
-//    }
-//
-//    private fun deleteDirContents(directory: File) {
-//        if (directory.isDirectory) {
-//            val children: Array<String> = directory.list() ?: return
-//            for (child in children) {
-//                val file = File(directory, child)
-//                if (file.isDirectory) {
-//                    deleteDirContents(file)
-//                } else {
-//                    file.delete()
-//                }
-//            }
-//        }
-//    }
 }
