@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EFeedAssignment" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+<!--        <item name="colorPrimary">@color/app_primary</item>-->
+<!--        <item name="colorPrimaryVariant">@color/app_secondary</item>-->
+<!--        <item name="colorOnPrimary">@color/app_on_primary</item>-->
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Background and text colors -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColorPrimary">@color/colorOnPrimary</item>
+        <item name="android:textColorSecondary">@color/colorOnSecondary</item>
+
+        <!-- Divider and error colors -->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.EFeedAssignment" parent="Base.Theme.EFeedAssignment" />
+</resources>

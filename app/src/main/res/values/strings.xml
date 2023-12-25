@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">E-Feed Assignment</string>
+    <string name="load_more">Load More</string>
+    <string name="state">State:</string>
+    <string name="closed">Closed</string>
+    <string name="open">Open</string>
+    <string name="keyword">Keyword</string>
+    <string name="apply">Apply</string>
+    <string name="repository">Repository</string>
+    <string name="username">Username</string>
+    <string name="clear_all">Clear All</string>
+    <string name="no_issues_in_the_repository">No issues in the repository</string>
+</resources>
